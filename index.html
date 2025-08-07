@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Casamento Poliana &amp; Júnior - 15/11/2025</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Montserrat:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<!-- Modal de Permissão de Música -->
+<div id="music-permission-modal" class="modal" style="display: none;">
+  <div class="modal-content" style="max-width: 400px; text-align: center;">
+    <h3 style="margin-bottom: 20px; color: var(--color-terracota);">🎵 Música Ambiente</h3>
+    <p style="margin-bottom: 25px; line-height: 1.6;">Gostaria de ouvir nossa trilha sonora especial durante a navegação para uma melhor experiência?</p>
+    <div style="display: flex; gap: 15px; justify-content: center;">
+      <button id="allow-music-btn" class="btn" style="background-color: var(--color-terracota); color: white;">
+        <i class="fas fa-music"></i> Sim, tocar música
+      </button>
+      <button id="deny-music-btn" class="btn" style="background-color: #6c757d; color: white;">
+        <i class="fas fa-volume-mute"></i> Não, obrigado
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="music-player">
+<button class="music-btn" id="toggle-music" style="display: none;">
+<i class="fas fa-music"></i>
+</button>
+<div class="music-controls">
+<div class="music-info" id="music-info" style="display: none;">
+  <span id="current-song-title">Carregando...</span>
+</div>
+<div class="music-buttons" style="display: none;" id="music-buttons">
+  <button id="prev-song" class="music-control-btn">⏮️</button>
+  <button id="play-pause" class="music-control-btn">⏯️</button>
+  <button id="next-song" class="music-control-btn">⏭️</button>
+  <button id="shuffle-toggle" class="music-control-btn active">🔀</button>
+</div>
+</div>
+
+<!-- Elementos de áudio para as músicas -->
+<audio id="audio-player" preload="metadata">
+  <source src="Musica1.mp3" type="audio/mpeg">
+  <source src="Musica2.mp3" type="audio/mpeg">
+  <source src="Musica3.mp3" type="audio/mpeg">
+</audio>
+</div>
+<header>
+<div class="header-content">
+<h1>Poliana &amp; Júnior</h1>
+<p class="date">15 de Novembro de 2025</p>
+<div class="countdown" id="countdown">
+<div>
+<span id="days">00</span>
+<span class="label">Dias</span>
+</div>
+<div>
+<span id="hours">00</span>
+<span class="label">Horas</span>
+</div>
+<div>
+<span id="minutes">00</span>
+<span class="label">Minutos</span>
+</div>
+<div>
+<span id="seconds">00</span>
+<span class="label">Segundos</span>
+</div>
+</div>
+<div class="save-the-date">
+<button id="add-to-calendar-btn" class="btn">Save the Date</button>
+</div>
+</div>
+</header>
+<nav>
+<ul>
+<li><a href="#inicio">Início</a></li>
+<li><a href="#detalhes">Detalhes</a></li>
+<li><a href="#local">Local</a></li>
+<li><a href="#presentes">Lista de Presentes</a></li>
+<li><a href="https://forms.gle/rHDD2RidQajEVTzv9" target="_blank">Confirmação</a></li>
+</ul>
+</nav>
+
+<section class="section" id="inicio">
+<div class="container text-center">
+<div class="story-content">
+<div class="story-text">
+<p>É com imensa alegria que compartilhamos este momento especial em nossas vidas. Criamos este espaço para reunir todas as informações sobre nossa celebração, que será ainda mais significativa com a presença de cada um de vocês.</p>
+<p>Pedimos, gentilmente, que confirmem sua presença clicando no botão abaixo ou no menu "Confirmação". Caso desejem nos presentear, fiquem à vontade para explorar nossa Lista de Casamento.</p>
+<!-- Single button to open RSVP modal -->
+<div class="text-center" style="margin: 20px 0;">
+<a href="https://forms.gle/rHDD2RidQajEVTzv9" target="_blank" class="btn">Confirmar Presença</a>
+</div>
+<p style="margin-top: 20px;">Agradecemos por todo o carinho e mal podemos esperar para celebrar juntos!</p>
+<p>Com carinho, Poliana e Júnior</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="detalhes">
+<div class="container text-center">
+<h2 class="section-title">Detalhes do Casamento</h2>
+<div class="details-integrated">
+<div class="detail-card-full">
+<i class="fas fa-calendar-alt"></i> <!-- Changed icon -->
+<h3>Informações</h3>
+<p><strong>Data:</strong> 15 de Novembro de 2025 (Sábado)</p>
+<p><strong>Horário:</strong> Cerimônia às 15h</p>
+<p><strong>Local:</strong> Chácara Paraíso - BA-131, Brejo do coelho, Antônio Gonçalves - BA</p>
+<p>Compartilhe suas fotos usando nossa hashtag:</p>
+<p class="hashtag">#CasamentoPoli&amp;Junior</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="local">
+<div class="container text-center">
+<h2 class="section-title">Local da Celebração</h2> <!-- Title changed -->
+<div class="venue-content">
+<div class="venue-info">
+<i class="fas fa-map-marker-alt"></i> <!-- Added icon -->
+<h3>Chácara Paraíso</h3>
+<p>BA-131, Brejo do coelho, Antônio Gonçalves - BA</p>
+<p>Cerimônia e recepção no mesmo local.</p>
+<div class="text-center" style="margin: 20px 0;">
+<a class="btn" href="https://maps.app.goo.gl/CuXUQ54rCjqN9cq57" target="_blank" title="Abrir Chácara Paraíso no Google Maps">
+  📍 Ver localização no mapa
+</a> <!-- Added icon to button -->
+</div>
+</div>
+<div class="venue-map">
+<iframe
+  frameborder="0"
+  height="300"
+  marginheight="0"
+  marginwidth="0"
+  scrolling="no"
+  src="https://maps.google.com/maps?q=chácara%20paraíso,%20Brejo%20do%20Coelho,%20Antônio%20Gonçalves%20-%20BA&t=&z=15&ie=UTF8&iwloc=&output=embed"
+  width="100%"
+  title="Mapa para Chácara Paraíso">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="presentes">
+  <div class="container text-center">
+    <h2 class="section-title">Lista de Presentes</h2>
+    <p style="margin-bottom: 30px;">Sua presença é o nosso maior presente! Mas, se desejar nos mimar, ficaremos muito felizes.</p>
+    <div class="text-center" style="margin: 20px 0;">
+    <a href="https://www.mercadolivre.com.br/presentes/casamento-poli-e-junior-s0jic" target="_blank" class="btn btn-primary"><i class="fas fa-gifts"></i> Ver Lista de Presentes</a> <!-- Added icon -->
+    </div>
+    <p style="margin-top: 15px; font-size: 16px; color: #555;">Se preferir, você pode nos presentear com uma contribuição via Pix:</p>
+    <!-- Pix Button Section -->
+    <div id="pix-section" style="margin-top: 10px;">
+        <div class="text-center">
+        <button id="show-pix-btn" class="btn btn-secondary"><i class="fas fa-qrcode"></i> Mostrar Chave Pix</button>
+        </div>
+        <div id="pix-details" class="hidden" style="margin-top: 15px; padding: 20px; background-color: #f8f9fa; border-radius: 8px; display: inline-block; text-align: center;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <img id="pix-qr-code" src="" alt="QR Code PIX" style="width: 150px; height: 150px; border: 2px solid #ddd; border-radius: 8px; display: none;">
+                    <p style="margin-top: 10px; font-size: 14px; color: #666;">Escaneie o QR Code</p>
+                </div>
+                <div style="text-align: center;">
+                    <p>Chave Pix (Celular):</p>
+                    <p><strong id="pix-key" style="font-size: 18px; color: var(--color-terracota);">74988631089</strong></p>
+                    <button id="copy-pix-btn" class="btn btn-small" style="margin-top: 10px;"><i class="fas fa-copy"></i> Copiar Chave</button>
+                    <div id="copy-feedback" style="margin-top: 10px; color: green; font-weight: bold;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Pix Button Section -->
+  </div>
+</section>
+
+<footer>
+<div class="container text-center">
+<p>© 2025 - Casamento Poliana &amp; Júnior. Todos os direitos reservados.</p> <!-- Added more detail -->
+<p class="hashtag">#CasamentoPoli&amp;Junior</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+

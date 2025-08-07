@@ -1,0 +1,1404 @@
+/* Estilos gerais */
+:root {
+    --color-terracota: #c8553d; /* Main accent color */
+    --color-caqui: #d4b483;     /* Secondary accent color */
+    --color-white: #ffffff;
+    --color-dark: #333333;     /* Main text color */
+    --color-light: #f9f9f9;    /* Background color */
+    --color-grey: #6c757d;     /* Grey for secondary text/elements */
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+}
+
+body {
+    font-family: var(--font-secondary);
+    color: var(--color-dark);
+    line-height: 1.6;
+    background-image: url("background.png"); /* Imagem para desktop */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+/* Background específico para dispositivos móveis */
+@media (max-width: 768px) {
+    body {
+        background-image: url("background-mobile.png");
+        background-attachment: scroll;
+        background-size: 100% auto; /* Largura 100%, altura automática */
+        background-position: center top;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Music Player */
+#music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all var(--transition-speed) ease;
+}
+
+.music-btn {
+    background-color: var(--color-terracota);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    font-size: 1.2rem;
+}
+
+.music-btn:hover {
+    background-color: #a6442f;
+    transform: scale(1.05);
+}
+
+.music-controls {
+    margin-left: 12px;
+    display: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.music-controls.active {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.music-info {
+    font-size: 0.85rem;
+    color: var(--color-dark);
+    font-weight: 500;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.music-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.music-control-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed) ease;
+    color: var(--color-dark);
+}
+
+.music-control-btn:hover {
+    background-color: rgba(200, 85, 61, 0.1);
+    transform: scale(1.1);
+}
+
+.music-control-btn.active {
+    background-color: var(--color-terracota);
+    color: var(--color-white);
+}
+
+/* Responsividade Mobile para Music Player */
+@media (max-width: 768px) {
+    #music-player {
+        top: 15px;
+        right: 15px;
+        padding: 6px 10px;
+        border-radius: 25px;
+    }
+    
+    .music-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .music-controls {
+        margin-left: 10px;
+    }
+    
+    .music-info {
+        font-size: 0.8rem;
+        max-width: 120px;
+    }
+    
+    .music-control-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        padding: 4px;
+    }
+    
+    .music-buttons {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    #music-player {
+        top: 10px;
+        right: 10px;
+        padding: 5px 8px;
+    }
+    
+    .music-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    .music-info {
+        font-size: 0.75rem;
+        max-width: 100px;
+    }
+    
+    .music-control-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .music-buttons {
+        gap: 4px;
+    }
+}
+
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.5); /* Adicionado background-color com transparência */
+    color: var(--color-white);
+    text-align: center;
+    padding: 150px 20px; /* Added padding for smaller screens */
+    position: relative;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Responsive font size */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.date {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.countdown div {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 5px;
+    min-width: 80px;
+    flex-basis: 100px; /* Base width */
+    flex-grow: 1; /* Allow growing */
+}
+
+.countdown span {
+    display: block;
+    text-align: center;
+}
+
+.countdown span:first-child {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: bold;
+}
+
+.countdown .label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.save-the-date {
+    margin-top: 30px;
+}
+
+.save-the-date p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* Navegação */
+nav {
+    background-color: var(--color-terracota);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+nav li {
+    /* padding removed, applied to link */
+}
+
+nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block; /* Ensures padding creates clickable area */
+    font-weight: 500;
+    transition: background-color var(--transition-speed) ease;
+}
+
+nav a:hover, nav a:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: none; /* Remove default focus outline if custom style is added */
+}
+
+/* Utilitários de texto */
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+/* Seções */
+.section {
+    padding: 80px 0;
+    text-align: center; /* Centralizar conteúdo das seções por padrão */
+}
+
+.section p {
+    text-align: center; /* Centralizar todos os parágrafos das seções */
+}
+
+.section:nth-child(odd) {
+    /* background-color: var(--color-white); */ /* Alternate background for sections */
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-terracota);
+    position: relative;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-caqui);
+    margin: 15px auto 0;
+}
+
+/* Início */
+.story-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+    text-align: center; /* Centralizar texto na seção de história */
+    justify-content: center; /* Centralizar o conteúdo horizontalmente */
+    flex-direction: column; /* Empilhar verticalmente para melhor centralização */
+}
+
+.story-image {
+    flex: 1;
+    min-width: 250px; /* Prevent image from becoming too small */
+}
+
+.story-text {
+    flex: 1;
+    text-align: center; /* Centralizar texto */
+    max-width: 800px; /* Aumentar largura máxima para melhor legibilidade */
+    margin: 0 auto; /* Centralizar horizontalmente */
+}
+
+.story-text p {
+    margin-bottom: 20px;
+    text-align: center; /* Garantir que todos os parágrafos sejam centralizados */
+}
+
+/* Centralizar botões na seção de história */
+.story-text .btn {
+    display: block;
+    margin: 20px auto;
+    max-width: 250px;
+    text-align: center;
+}
+
+
+
+/* Detalhes */
+.details-integrated {
+    display: flex;
+    justify-content: center;
+}
+
+.detail-card-full {
+    background-color: #d9c19d; /* Cor de fundo atualizada */
+    padding: 40px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+.detail-card-full i {
+    font-size: 2.5rem;
+    color: var(--color-terracota);
+    margin-bottom: 20px;
+}
+
+.detail-card-full h3 {
+    font-family: var(--font-primary);
+    margin-bottom: 15px;
+    color: var(--color-terracota);
+    font-size: 1.5rem;
+}
+
+.detail-card-full p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.hashtag {
+    font-weight: bold;
+    color: var(--color-terracota);
+}
+
+/* Local */
+.venue-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    text-align: center; /* Centralizar conteúdo da seção local */
+    justify-content: center; /* Centralizar horizontalmente */
+    flex-wrap: wrap; /* Permitir quebra de linha em telas menores */
+}
+
+.venue-info {
+    flex: 1;
+    text-align: center; /* Centralizar informações do local */
+    min-width: 300px; /* Largura mínima */
+}
+
+.venue-map {
+    flex: 1;
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ddd; /* Add subtle border to map */
+    min-width: 300px; /* Largura mínima */
+}
+
+.venue-info i.fa-map-marker-alt {
+    font-size: 2rem; /* Icon size */
+    color: var(--color-terracota);
+    margin-bottom: 15px;
+    display: block; /* Make it block to center */
+    text-align: center;
+}
+
+.venue-info h3 {
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    color: var(--color-terracota);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.venue-info p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.venue-info .btn {
+    display: inline-block; /* Manter como inline-block para centralização */
+    margin: 20px auto; /* Centralizar botão */
+    text-align: center;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    background-color: var(--color-terracota);
+    color: var(--color-white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    margin: 10px auto; /* Centralizar botões por padrão */
+}
+
+.btn i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.btn:hover, .btn:focus {
+    background-color: #a6442f; /* Darker shade */
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.btn-primary {
+    /* Already uses terracotta */
+}
+
+.btn-secondary {
+    background-color: var(--color-caqui);
+    color: var(--color-dark);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: #b89a6c; /* Darker caqui */
+    color: var(--color-dark);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+/* Lista de Presentes */
+#presentes .container {
+    max-width: 800px; /* Limit width for better readability */
+    text-align: center; /* Centralizar todo o conteúdo da seção */
+}
+
+#presentes .btn {
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+#pix-section {
+    text-align: center;
+}
+
+#pix-section .btn {
+    display: inline-block;
+    margin: 10px auto;
+}
+
+#pix-section button i {
+    margin-right: 8px;
+}
+
+#pix-details {
+    border: 1px solid #eee;
+    transition: all var(--transition-speed) ease;
+}
+
+#pix-details.hidden {
+    opacity: 0;
+    max-height: 0;
+    padding: 0 15px;
+    margin-top: 0;
+    overflow: hidden;
+    border: none;
+}
+
+#copy-feedback {
+    transition: opacity var(--transition-speed) ease;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px; /* Add space before footer */
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .hashtag {
+    color: var(--color-caqui); /* Use accent color for hashtag */
+    font-weight: 500;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .story-content,
+    .venue-content {
+        flex-direction: column;
+        text-align: center; /* Center text when stacked */
+    }
+
+    .venue-info .btn {
+        margin: 20px auto 0;
+    }
+
+    .countdown div {
+        min-width: 70px;
+        padding: 10px;
+        flex-basis: calc(50% - 10px); /* Two items per row */
+    }
+
+    nav ul {
+        /* Keep flex for wrapping */
+    }
+
+    nav a {
+        padding: 12px 15px;
+    }
+
+    /* Melhorar layout PIX em mobile */
+    #pix-details div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    #pix-qr-code {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown div {
+        flex-basis: calc(50% - 10px); /* Ensure two items per row */
+    }
+
+    header {
+        padding: 100px 20px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    /* Ajustar tamanho do QR code em telas muito pequenas */
+    #pix-qr-code {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .story-text p {
+        font-size: 0.95rem; /* Reduzir ligeiramente o tamanho da fonte em mobile */
+        line-height: 1.5;
+    }
+}
+
+
+/* Estilos para o Modal de Confirmação */
+.modal {
+  display: none; /* Oculto por padrão */
+  position: fixed; /* Fica fixo na tela */
+  z-index: 1000; /* Fica sobre outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* Habilita scroll vertical se necessário */
+  background-color: rgba(0,0,0,0.7); /* Fundo escurecido um pouco mais */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: rgba(254, 254, 254, 0.98);
+  padding: 30px;
+  border: none;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  text-align: center;
+}
+
+/* Animação de entrada do modal */
+@keyframes animatetop {
+  from {transform: translateY(-50px) scale(0.9); opacity: 0}
+  to {transform: translateY(0) scale(1); opacity: 1}
+}
+
+.close-modal-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  line-height: 1;
+  transition: color var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+  color: var(--color-dark);
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Responsividade Mobile para Modal */
+@media (max-width: 768px) {
+  .modal {
+    padding: 15px;
+  }
+  
+  .modal-content {
+    width: 95%;
+    max-width: none;
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+  
+  .modal-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .modal-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    margin: 8px 5px;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 10px;
+  }
+  
+  .modal-content {
+    padding: 20px 15px;
+    border-radius: 10px;
+  }
+  
+  .modal-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .modal-content p {
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+  
+  .modal-content div[style*="display: flex"] {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  .modal-content .btn {
+    width: 100%;
+    margin: 5px 0;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .close-modal-btn {
+    font-size: 24px;
+    top: 12px;
+    right: 15px;
+  }
+}
+
+/* Adaptações de estilo do formulário de confirmação para o modal */
+.modal-content .container {
+    padding: 0 !important; /* Remove padding from inner container */
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    text-align: center; /* Centralizar conteúdo do modal */
+}
+
+.modal-content h1 {
+    font-size: clamp(1.5rem, 4vw, 1.8em);
+    margin-top: 0;
+    margin-bottom: 15px; /* Added margin bottom */
+    text-align: center;
+    color: var(--color-terracota);
+}
+
+.modal-content h2 {
+    font-size: clamp(1.1rem, 3vw, 1.3em);
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--color-terracota);
+}
+
+.modal-content .tab {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px;
+    background: #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    border: 1px solid transparent;
+    transition: all var(--transition-speed) ease;
+}
+
+.modal-content .tab:hover {
+    background: #ddd;
+}
+
+.modal-content .tab.active {
+    background: var(--color-terracota);
+    color: white;
+    border-color: var(--color-terracota);
+}
+
+.modal-content .content {
+    display: none;
+    animation: fade 0.5s ease;
+    margin-top: 20px;
+    padding: 10px 0; /* Add some padding */
+    text-align: center; /* Centralizar conteúdo das abas */
+}
+
+.modal-content .content.active {
+    display: block;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    width: 100%; /* Use 100% width */
+    padding: 12px;
+    margin: 8px 0 15px 0; /* Add margin bottom */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+    font-size: 1rem;
+}
+
+.modal-content button {
+    padding: 10px 15px;
+    background: var(--color-terracota);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px 5px;
+    font-size: 0.9em;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.modal-content button:hover {
+    opacity: 1; /* Override general button hover */
+    background-color: #a6442f;
+    transform: translateY(-2px);
+}
+
+/* Specific button styles within modal */
+.modal-content #admin-modal button[onclick*="limparDadosModal"] {
+    background-color: #dc3545; /* Red for delete */
+}
+.modal-content #admin-modal button[onclick*="limparDadosModal"]:hover {
+    background-color: #c82333; /* Darker red */
+}
+
+.modal-content .carousel {
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 150px; /* Altura definida no HTML */
+    background-color: #eee; /* Background for carousel area */
+}
+
+.modal-content .carousel .placeholder-image {
+    width: 100%;
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    color: #666;
+    background: transparent; /* Remove individual background */
+}
+
+.modal-content table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    font-size: 0.85em;
+}
+
+.modal-content th, .modal-content td {
+    padding: 8px; /* Increased padding */
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal-content th {
+    background: var(--color-caqui);
+    color: var(--color-dark);
+    font-weight: bold;
+}
+
+.modal-content .counter {
+    margin-top: 10px;
+    margin-bottom: 15px; /* Added margin bottom */
+    font-weight: bold;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* Centralizar resultado da consulta */
+#resultado-consulta-modal {
+    text-align: center !important;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Ajustes para responsividade do modal */
+@media screen and (max-width: 700px) {
+  .modal-content {
+    width: 95%;
+    margin: 5vh auto; /* Adjust margin for smaller screens */
+    padding: 20px;
+  }
+  .modal-content h1 {
+      font-size: 1.5em;
+  }
+  .modal-content h2 {
+      font-size: 1.2em;
+  }
+  .modal-content button {
+      padding: 10px 12px;
+      font-size: 0.9em;
+  }
+  .modal-content table {
+      font-size: 0.8em;
+  }
+  .modal-content th, .modal-content td {
+      padding: 6px;
+  }
+}
+
+
+
+/* Estilos para o Modal de Permissão de Música */
+#music-permission-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#music-permission-modal .modal-content {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Estilos atualizados para o Music Player */
+#music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-speed) ease;
+}
+
+#music-player:hover {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.music-btn {
+    background-color: var(--color-terracota);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    font-size: 16px;
+}
+
+.music-btn:hover {
+    background-color: #a6442f;
+    transform: scale(1.05);
+}
+
+.music-controls {
+    margin-left: 15px;
+    display: none;
+    opacity: 0;
+    transition: all var(--transition-speed) ease;
+}
+
+.music-controls.active {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    gap: 15px;
+}
+
+.music-info {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--color-dark);
+    font-weight: 500;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.music-control-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--color-terracota);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed) ease;
+    font-size: 14px;
+}
+
+.music-control-btn:hover {
+    background-color: rgba(200, 85, 61, 0.1);
+    transform: scale(1.1);
+}
+
+.music-control-btn.active {
+    background-color: var(--color-terracota);
+    color: var(--color-white);
+}
+
+.music-control-btn.active:hover {
+    background-color: #a6442f;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Music Player Mobile */
+    #music-player {
+        top: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        border-radius: 25px;
+    }
+    
+    .music-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .music-controls {
+        margin-left: 10px;
+        gap: 10px;
+    }
+    
+    .music-info {
+        max-width: 100px;
+        font-size: 12px;
+    }
+    
+    .music-control-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+        padding: 6px;
+    }
+    
+    /* Modal de Permissão Mobile */
+    #music-permission-modal .modal-content {
+        padding: 25px 20px;
+        margin: 10px;
+    }
+    
+    #music-permission-modal h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    #music-permission-modal p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    #music-permission-modal .btn {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+    /* Header Mobile */
+    header {
+        padding: 100px 15px;
+    }
+    
+    .countdown {
+        gap: 10px;
+    }
+    
+    .countdown div {
+        padding: 10px;
+        min-width: 60px;
+        flex-basis: 70px;
+    }
+    
+    /* Navigation Mobile */
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 12px 15px;
+    }
+    
+    /* Container Mobile */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Sections Mobile */
+    .section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    /* Details Mobile */
+    .details-integrated {
+        padding: 0;
+    }
+    
+    .detail-card-full {
+        padding: 25px 20px;
+    }
+    
+    /* Venue Mobile */
+    .venue-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .venue-info, .venue-map {
+        flex: none;
+        width: 100%;
+    }
+    
+    /* Modal Mobile */
+    .modal-content {
+        margin: 10px;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    /* Buttons Mobile */
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        margin: 5px;
+    }
+    
+    /* Pix Section Mobile */
+    #pix-details {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    #pix-details > div {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    #pix-qr-code {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* Tables Mobile */
+    table {
+        font-size: 12px;
+    }
+    
+    table th, table td {
+        padding: 8px 4px;
+    }
+    
+    /* Forms Mobile */
+    input[type="text"], input[type="password"], select {
+        padding: 12px;
+        font-size: 16px; /* Previne zoom no iOS */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small screens */
+    #music-player {
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        top: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    
+    .music-controls.active {
+        flex-direction: column;
+        gap: 8px;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .music-info {
+        order: 1;
+        max-width: 120px;
+        text-align: center;
+    }
+    
+    .music-buttons {
+        order: 2;
+        gap: 6px;
+    }
+    
+    /* Header extra small */
+    header {
+        padding: 80px 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .date {
+        font-size: 1rem;
+    }
+    
+    .countdown {
+        gap: 8px;
+    }
+    
+    .countdown div {
+        padding: 8px;
+        min-width: 50px;
+        flex-basis: 60px;
+    }
+    
+    .countdown span:first-child {
+        font-size: 1.2rem;
+    }
+    
+    .countdown .label {
+        font-size: 0.7rem;
+    }
+}
+
+/* Melhorias gerais de acessibilidade e UX */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Melhor contraste para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus states melhorados */
+button:focus,
+input:focus,
+select:focus,
+a:focus {
+    outline: 2px solid var(--color-terracota);
+    outline-offset: 2px;
+}
+
+/* Hover states para touch devices */
+@media (hover: hover) {
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    header {
+        padding: 60px 15px;
+    }
+    
+    .countdown {
+        gap: 15px;
+    }
+    
+    .countdown div {
+        padding: 8px;
+        min-width: 70px;
+    }
+    
+    #music-player {
+        top: 10px;
+        right: 10px;
+        bottom: auto;
+    }
+}
